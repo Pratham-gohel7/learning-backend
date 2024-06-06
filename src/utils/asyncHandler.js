@@ -5,10 +5,8 @@ const asyncHandler = (requestHandler) => {   //another way
     }
 }
 
-export {asyncHandler}
-
-// Higher-order function : its a type of function which accepts variable as well as function as a parameter.
-// const asyncHandler = (fn) = async (req, res, next) => {   its a first way of wrapper function
+//Higher-order function : its a type of function which accepts variable as well as function as a parameter.
+// const asyncHandler = (fn) = async (req, res, next) => {   //its a first way of wrapper function
 //     try {
 //         await fn(req, res, next)
 //     } catch (error) {
@@ -18,3 +16,4 @@ export {asyncHandler}
 //         })
 //     }
 // }
+export default asyncHandler
