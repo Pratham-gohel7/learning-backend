@@ -197,7 +197,9 @@ const changePassword = asyncHandler(async (req, res) => {
     await user.save({validateBeforeSave: false})
 
     return res.status(200)
-    .json(201, {}, "Password changed successfully...")
+    .json(
+        new ApiResponse(201, {}, "Password changed successfully...")
+    )
 
 })
 
@@ -368,7 +370,7 @@ const updateUserCoverImage = asyncHandler(async (req, res) => {
     const user = User.aggregate([
         {
             $match: {
-                _id: new mongoose.Types.ObjectId(req.user._id)
+                _id: new mongoose.Schema.Types.ObjectId(req.user._id)
             },
             $lookup: {
                 from: "videos",
